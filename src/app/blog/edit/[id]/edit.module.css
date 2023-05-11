@@ -1,0 +1,89 @@
+.container {
+    margin-top: 5rem;
+    height: calc(100vh - 60px);
+    width: 100%;
+}
+
+.wrapper {
+    width: 85%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wrapper>h2 {
+    font-size: 32px;
+    color: #222;
+    letter-spacing: 1px;
+}
+
+.wrapper>form {
+    margin-top: 2rem;
+    width: 20%;
+    padding: 1.5rem;
+    border: 1px solid #666;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+}
+
+.wrapper>form>input,
+.wrapper>form>textarea {
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #666;
+    padding: 0.4rem;
+    resize: none;
+}
+
+.wrapper>form>select {
+    outline: none;
+    border-bottom: 1px solid #666;
+    padding: 0.4rem;
+    resize: none;
+    font-size: 18px;
+    width: 180px;
+    background-color: #efefef;
+    border-radius: 8px;
+}
+
+.wrapper>form>label {
+    width: 175px;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.createBlog {
+    margin-top: 2.5rem;
+    outline: none;
+    border: 1px solid transparent;
+    padding: 0.5rem 1.25rem;
+    font-size: 18px;
+    border-radius: 12px;
+    background-color: #22ab22;
+    color: #efefef;
+    cursor: pointer;
+    transition: 150ms;
+}
+
+.createBlog:hover {
+    background-color: #efefef;
+    border-color: #22ab22;
+    color: #22ab22;
+}
+
+.accessDenied {
+    width: 100%;
+    text-align: center;
+    margin-top: 5rem;
+    font-size: 32px;
+    font-weight: bold;
+}

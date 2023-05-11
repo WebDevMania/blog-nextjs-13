@@ -9,10 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cloudinary": "^1.36.4",
     "eslint": "8.40.0",
     "eslint-config-next": "13.4.1",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.1.1",
     "next": "13.4.1",
+    "next-auth": "^4.22.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-icons": "^4.8.0",
+    "react-toastify": "^9.1.2",
+    "timeago.js": "^4.0.2"
   }
 }

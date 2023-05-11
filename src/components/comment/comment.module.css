@@ -1,0 +1,41 @@
+.container{
+    height: 100%;
+    width: 100%;
+}
+
+.wrapper{
+    width: 85%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left{
+    display: flex;
+    gap: 1.25rem;
+}
+
+.left > img{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.left > .userData{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+}
+
+.timeago{
+    font-size: 15px;
+    color: #555;
+}
+
+.trashIcon{
+    cursor: pointer;
+}
