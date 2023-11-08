@@ -10,7 +10,7 @@ import classes from './createBlog.module.css'
 
 const CreateBlog = () => {
     const CLOUD_NAME = 'doojo83ea'
-    const UPLOAD_PRESET = 'my_blog_project_webdevmania'
+    const UPLOAD_PRESET = 'blog_app'
 
     const [title, setTitle] = useState('')
     const [desc, setDesc] = useState('')
@@ -34,30 +34,30 @@ const CreateBlog = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        if(!photo || !title || !category || !desc){
+        if (!photo || !title || !category || !desc) {
             toast.error("All fields are required")
             return
         }
 
         try {
-          const imageUrl = await uploadImage()
-          
-          const res = await fetch(`https://blog-nextjs-13-sud5.vercel.app/api/blog`, {
-            headers: {
-               'Content-Type': 'application/json',
-               'Authorization': `Bearer ${session?.user?.accessToken}` 
-            },
-            method: 'POST',
-            body: JSON.stringify({title,desc,category,imageUrl,authorId: session?.user?._id})
-          })
+            const imageUrl = await uploadImage()
 
-          if(!res.ok){
-            throw new Error("Error occured")
-          }
+            const res = await fetch(`http://localhost:3000/api/blog`, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${session?.user?.accessToken}`
+                },
+                method: 'POST',
+                body: JSON.stringify({ title, desc, category, imageUrl, authorId: session?.user?._id })
+            })
 
-          const blog = await res.json()
+            if (!res.ok) {
+                throw new Error("Error occured")
+            }
 
-          router.push(`/blog/${blog?._id}`)
+            const blog = await res.json()
+
+            router.push(`/blog/${blog?._id}`)
         } catch (error) {
             console.log(error)
         }
@@ -72,16 +72,16 @@ const CreateBlog = () => {
         formData.append("upload_preset", UPLOAD_PRESET)
 
         try {
-          const res = await fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`, {
-            method: "POST",
-            body: formData
-          })
+            const res = await fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`, {
+                method: "POST",
+                body: formData
+            })
 
-          const data = await res.json()
+            const data = await res.json()
 
-          const imageUrl = data['secure_url']
+            const imageUrl = data['secure_url']
 
-          return imageUrl
+            return imageUrl
         } catch (error) {
             console.log(error)
         }
@@ -105,7 +105,7 @@ const CreateBlog = () => {
                         Upload Image <AiOutlineFileImage />
                     </label>
                     <input id='image' type="file" style={{ display: 'none' }} onChange={(e) => setPhoto(e.target.files[0])} />
-                  <button className={classes.createBlog}>Create</button>
+                    <button className={classes.createBlog}>Create</button>
                 </form>
             </div>
             <ToastContainer />
